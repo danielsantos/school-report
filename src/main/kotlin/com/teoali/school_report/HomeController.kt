@@ -8,7 +8,6 @@ class HomeController {
 
     @GetMapping
     fun home(): String {
-        return "Meu Boletim Escolar > Em construção..."
+        return "home/index"
     }
-
 }
