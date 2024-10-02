@@ -1,4 +1,6 @@
 package com.teoali.school_report.domain
 
-class Report {
-}
+data class Report (
+    val name: String?,
+    val serie: String?
+)
