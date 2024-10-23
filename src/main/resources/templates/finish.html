@@ -49,25 +49,6 @@
 
     <br/><br/>
 
-    <form th:object="${discipline}" th:action="@{/save_discipline}" method="post">
-        <input type="hidden" name="report.id" th:value="${report.id}">
-        <div class="form-group">
-            <input type="text" id="name" name="name" required class="form-control" placeholder="Digite a disciplina" style="width: 40%">
-            <br/>
-            <input type="text" id="scoreFirst" name="scoreFirst" required class="form-control" placeholder="Digite a nota do primeiro bimestre" style="width: 40%">
-            <br/>
-            <input type="text" id="scoreSecond" name="scoreSecond" required class="form-control" placeholder="Digite a nota do segundo bimestre" style="width: 40%">
-            <br/>
-            <input type="text" id="scoreThird" name="scoreThird" required class="form-control" placeholder="Digite a nota do terceiro bimestre" style="width: 40%">
-            <br/>
-            <input type="text" id="scoreFourth" name="scoreFourth" required class="form-control" placeholder="Digite a nota do quarto bimestre" style="width: 40%">
-            <br/>
-            <button type="submit" class="btn btn-primary">Inserir Disciplina</button>
-        </div>
-    </form>
-
-    <br/><br/>
-
     <h2>Lista de Usuários</h2>
 
     <table>
@@ -91,13 +72,6 @@
         </tbody>
     </table>
 </div>
-
-<form th:object="${report}" th:action="@{/finish}" method="post">
-    <input type="hidden" name="id" th:value="${report.id}">
-    <div style="text-align: -webkit-center">
-        <button type="submit" class="btn btn-primary">Gerar Boletim</button>
-    </div>
-</form>
 
 </body>
 <script>
