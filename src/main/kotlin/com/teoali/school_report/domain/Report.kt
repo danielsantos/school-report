@@ -15,6 +15,9 @@ data class Report (
     @Column
     val serie: String? = "",
 
+    @Column
+    val schoolName: String? = "",
+
     @OneToMany(mappedBy = "report", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     val disciplines: List<Discipline> = emptyList()
 )
