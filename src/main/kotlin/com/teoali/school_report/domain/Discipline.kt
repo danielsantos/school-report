@@ -25,6 +25,9 @@ data class Discipline (
     @Column
     val scoreFourth: Long? = 0,
 
+    @Column
+    var score: Long? = 0,
+
     @ManyToOne
     @JoinColumn(name = "report_id", nullable = false)
     val report: Report? = null

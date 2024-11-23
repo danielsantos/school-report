@@ -5,6 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4df724bf-def2-4b60-a47b-b27e5f507dd7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/configs/WebConfig.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/finish_joy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index_joy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/view_report_joy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,10 +20,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/HomeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/HomeController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/domain/Discipline.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/domain/Discipline.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/domain/Report.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/domain/Report.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/finish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/finish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view_report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,16 +109,17 @@
   "keyToString": {
     "Gradle.Build school-report.executor": "Run",
     "Gradle.school-report [clean].executor": "Run",
+    "Kotlin.HomeControllerKt.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.SchoolReportApplication.executor": "Debug",
+    "Spring Boot.SchoolReportApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/danirocha/Documents/projects/school-report",
+    "last_opened_file_path": "/Users/danirocha/Documents/projects/school-report/src/main/resources/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -125,8 +134,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="com.teoali.school_report.repository" />
@@ -156,6 +165,13 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="HomeControllerKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.teoali.school_report.HomeControllerKt" />
+      <module name="school-report.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SchoolReportApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="school-report.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.teoali.school_report.SchoolReportApplication" />
@@ -165,6 +181,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.HomeControllerKt" />
         <item itemvalue="Gradle.school-report [clean]" />
       </list>
     </recent_temporary>
@@ -199,7 +216,15 @@
       <workItem from="1729558406817" duration="3372000" />
       <workItem from="1729645064419" duration="5539000" />
       <workItem from="1729730057963" duration="269000" />
-      <workItem from="1729730359944" duration="4979000" />
+      <workItem from="1729730359944" duration="5759000" />
+      <workItem from="1730069351924" duration="2029000" />
+      <workItem from="1731463355271" duration="265000" />
+      <workItem from="1731549215064" duration="760000" />
+      <workItem from="1732003950285" duration="4663000" />
+      <workItem from="1732068155327" duration="5462000" />
+      <workItem from="1732123163064" duration="4243000" />
+      <workItem from="1732349302658" duration="89000" />
+      <workItem from="1732349411612" duration="7544000" />
     </task>
     <servers />
   </component>
@@ -211,8 +236,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/HomeController.kt</url>
-          <line>43</line>
-          <option name="timeStamp" value="6" />
+          <line>150</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/HomeController.kt</url>
+          <line>152</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/HomeController.kt</url>
+          <line>156</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/teoali/school_report/HomeController.kt</url>
+          <line>141</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
