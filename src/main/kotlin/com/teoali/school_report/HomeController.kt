@@ -10,20 +10,20 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute
 import java.awt.*
 import java.awt.image.BufferedImage
 import java.io.ByteArrayOutputStream
 import org.springframework.http.HttpHeaders
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
 import java.io.File
 import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.time.LocalDateTime
 import javax.imageio.ImageIO
+import java.util.Base64
 
 @Controller
 class HomeController(
@@ -37,6 +37,11 @@ class HomeController(
     fun home(model: Model): String {
         model.addAttribute("report", Report(null, null))
         return "index_joy"
+    }
+
+    @GetMapping("/inicio")
+    fun inicio(model: Model): String {
+        return "inicio"
     }
 
     @GetMapping("/boletim-escola")
@@ -126,6 +131,43 @@ class HomeController(
         model.addAttribute("report", reportRepository.findById(report.id!!).get())
         model.addAttribute("disciplines", disciplineRepository.findByReportId(report.id))
         return "finish"
+    }
+
+    @PostMapping("/html_code")
+    fun getHtmlCode(@ModelAttribute codigoHTML: String, model: Model): String {
+        println(codigoHTML)
+        return "finish"
+    }
+
+    @PostMapping("/salvar-imagem")
+    fun salvarImagem(@RequestBody imagem: Map<String, String>): ResponseEntity<String> {
+        val base64Image = imagem["image"] ?: return ResponseEntity.badRequest().body("Imagem não recebida")
+        val base64Data = base64Image.replace("data:image/png;base64,", "")
+
+        try {
+            val imageBytes = Base64.getDecoder().decode(base64Data)
+            val path = Paths.get("captura.png")
+            Files.write(path, imageBytes)
+
+            return ResponseEntity.ok("Imagem salva com sucesso!")
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return ResponseEntity.status(500).body("Erro ao salvar a imagem")
+        }
+    }
+
+    @PostMapping("/submitHtml")
+    fun submitHtml(@RequestParam htmlContent: String): ResponseEntity<ByteArray> {
+        val image = createImageFromHtml(htmlContent)
+
+        val outputStream = ByteArrayOutputStream()
+        ImageIO.write(image, "png", outputStream)
+        val imageBytes = outputStream.toByteArray()
+
+        val headers = HttpHeaders()
+        headers.add("Content-Type", "image/png")
+
+        return ResponseEntity(imageBytes, headers, HttpStatus.OK)
     }
 
     @PostMapping("/finish-joy")

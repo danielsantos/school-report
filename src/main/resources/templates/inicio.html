@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Tela com Kotlin e Spring Boot</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<h1>Hello World</h1>
+<button id="capture-btn">Capturar Tela</button>
+<div id="output"></div>
+
+<script th:inline="javascript">
+    document.getElementById("capture-btn").onclick = function() {
+        // Certifique-se de que o html2canvas foi carregado corretamente
+        if (typeof html2canvas !== "undefined") {
+            console.log("html2canvas está carregado.");
+
+            // Capturando a tela com html2canvas
+            html2canvas(document.body).then(function(canvas) {
+                console.log("Captura de tela realizada.");
+                // Convertendo a captura em uma imagem Base64
+                var img = canvas.toDataURL("image/png");
+
+                // Exibindo a imagem na tela
+                document.getElementById("output").innerHTML = "<img src='" + img + "' />";
+
+                // Enviando a imagem para o backend
+                fetch('@{/salvar-imagem}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ image: img })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Imagem enviada com sucesso!", data);
+                    })
+                    .catch(error => {
+                        console.error("Erro ao enviar imagem:", error);
+                    });
+            }).catch(function(error) {
+                console.error("Erro ao capturar a tela:", error);
+            });
+        } else {
+            console.error("html2canvas não está carregado corretamente.");
+        }
+    };
+</script>
+</body>
+</html>
