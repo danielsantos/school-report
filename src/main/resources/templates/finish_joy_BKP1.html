@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TEOALI</title>
+    <meta name="description" content="Creating a Employee table with Twitter Bootstrap. Learn with example of a Employee Table with Twitter Bootstrap.">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            position: absolute;
+            top: 15%;
+            left: 25%;
+            background-color: rgba(255, 255, 255, 0.6);
+            font-weight: bold;
+        }
+        table, th, td {
+            border: 2px solid #debc7b;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .img-background {
+            width: 100%;
+            filter: blur(8px);
+        }
+        #preview {
+            max-width: 400px;
+            max-height: 400px;
+            margin-top: 20px;
+        }
+        .container {
+            position: relative;
+            /*text-align: center;*/
+            /*color: white;*/
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" style="font-weight: 500">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">TEOALI</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <img th:src="@{/images/paper-wall.png}" class="img-background"/>
+    <div style="text-align: -webkit-center">
+        <div style="background: white">
+        <table style="width: 90%; margin-left: -20%;">
+            <tr>
+                <td style="font-size: 20px; text-align: center; font-weight: 900;" colspan="6">
+                    Boletim Divertido
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="padding-bottom: 230px;">
+                    <table style="width: 98%; margin-left: -24%; margin-top: -32px;">
+                        <tr>
+                            <td style="width: 50%">
+                                Escola: <span th:text="${report.schoolName}"></span>
+                            </td>
+                            <td rowspan="2">
+                                <div id="imagePreview" style="margin-left: 35px;">
+                                    <img id="preview" th:src="@{${imagePath}}" alt="Imagem carregada" style="border-radius: 50%"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Aluno: <span th:text="${report.name}"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr th:each="discipline : ${disciplines}">
+                <td style="text-align: center" th:text="${discipline.name}" colspan="2"></td>
+                <td colspan="4">
+                    <th:block th:each="i : ${#numbers.sequence(0, 4)}">
+                        <i class="material-icons" th:style="'font-size:30px;margin-left:10px;' + ${i < discipline.score ? 'color:blue;' : 'color:#c8c5c4;'}">
+                            pets
+                        </i>
+                    </th:block>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>
+
+<!--
+<form id="htmlForm" action="/submitHtml" method="post">
+    <input type="hidden" id="htmlContent" name="htmlContent" />
+    <button type="button" onclick="fillAndSubmitForm()">Enviar HTML</button>
+</form>
+-->
+
+</body>
+<script>
+    $(document).ready(function(){
+        $('#myTable').dataTable({language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.0.2/i18n/pt-BR.json',
+            }}
+        );
+    });
+
+    function fillAndSubmitForm() {
+        var htmlContent = document.documentElement.outerHTML;
+        document.getElementById('htmlContent').value = htmlContent;
+        document.getElementById('htmlForm').submit();
+    }
+</script>
+</html>
