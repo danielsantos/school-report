@@ -1,0 +1,10 @@
+<table>
+    <tr>
+        <th style="text-align: center">NOME</th>
+        <th style="text-align: center">DATA CRIACAO</th>
+    </tr>
+    <tr th:each="obj : ${result}">
+        <td style="text-align: center" th:text="${obj.name}"></td>
+        <td style="text-align: center" th:text="${obj.dateCreated}"></td>
+    </tr>
+</table>

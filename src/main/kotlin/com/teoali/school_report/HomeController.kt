@@ -1,5 +1,6 @@
 package com.teoali.school_report
 
+import com.sun.tools.javac.jvm.ByteCodes.ret
 import com.teoali.school_report.domain.Discipline
 import com.teoali.school_report.domain.Report
 import com.teoali.school_report.repository.DisciplineRepository
@@ -46,7 +47,9 @@ class HomeController(
 
     @GetMapping("/admin-scrt")
     fun adminScrt(model: Model): String {
-        return reportRepository.findAll().toString()
+        val result = reportRepository.findAll()
+        model.addAttribute("result", result)
+        return "admin_scrt"
     }
 
     @GetMapping("/boletim-escola")
