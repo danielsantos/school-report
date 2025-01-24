@@ -44,6 +44,11 @@ class HomeController(
         return "inicio"
     }
 
+    @GetMapping("/admin-scrt")
+    fun adminScrt(model: Model): String {
+        return reportRepository.findAll().toString()
+    }
+
     @GetMapping("/boletim-escola")
     fun boletimEscola(model: Model): String {
         model.addAttribute("report", Report(null, null))
