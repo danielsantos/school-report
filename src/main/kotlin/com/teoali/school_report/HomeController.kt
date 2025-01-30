@@ -35,8 +35,13 @@ class HomeController(
 
     @GetMapping("/")
     fun home(model: Model): String {
-        model.addAttribute("report", Report(null, null))
         return "index_joy"
+    }
+
+    @GetMapping("/create")
+    fun create(model: Model): String {
+        model.addAttribute("report", Report(null, null))
+        return "create"
     }
 
     @GetMapping("/inicio")
